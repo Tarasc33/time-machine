@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машина часу</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Машина часу</h1>
+    <p>Введіть дату:</p>
+    <div class="input-group">
+        <input type="text" id="dayInput" placeholder="День">
+        <input type="text" id="monthInput" placeholder="Місяць">
+        <input type="text" id="yearInput" placeholder="Рік">
+    </div>
+    <button onclick="fetchEvents()">Знайти події</button>
+    <div id="results"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
