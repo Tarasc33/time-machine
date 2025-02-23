@@ -41,7 +41,14 @@ function fetchEvents() {
                 }
                 let fullDate = `${day ? day + '.' : ''}${month ? month + '.' : ''}${event.year}`;
                 let eventDiv = document.createElement('div');
-                eventDiv.innerHTML = `<h3>${fullDate}</h3><p>${event.text}</p>`;
+                let eventTitle = document.createElement('h3');
+                eventTitle.textContent = fullDate;
+                let eventLink = document.createElement('a');
+                eventLink.href = event.pages[0]?.content_urls.desktop.page || "#";
+                eventLink.target = "_blank";
+                eventLink.textContent = event.text;
+                eventDiv.appendChild(eventTitle);
+                eventDiv.appendChild(eventLink);
                 resultsDiv.appendChild(eventDiv);
             });
         })
