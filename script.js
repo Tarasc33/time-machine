@@ -35,10 +35,13 @@ function fetchEvents() {
                 return;
             }
             
+            let eventsFound = false;
+            
             data.events.forEach(event => {
                 if (year && event.year != year) {
                     return;
                 }
+                eventsFound = true;
                 let fullDate = `${day ? day + '.' : ''}${month ? month + '.' : ''}${event.year}`;
                 let eventDiv = document.createElement('div');
                 let eventTitle = document.createElement('h3');
@@ -51,6 +54,10 @@ function fetchEvents() {
                 eventDiv.appendChild(eventLink);
                 resultsDiv.appendChild(eventDiv);
             });
+
+            if (!eventsFound) {
+                resultsDiv.innerHTML = "Немає подій на цю дату.";
+            }
         })
         .catch(error => {
             console.error("Помилка отримання даних:", error);
