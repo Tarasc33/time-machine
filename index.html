@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Машина часу</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <h1>Машина часу</h1>
@@ -15,7 +32,8 @@
         <input type="text" id="monthInput" placeholder="Місяць">
         <input type="text" id="yearInput" placeholder="Рік">
     </div>
-    <button onclick="fetchEvents()">Знайти події</button>
+    <button onclick="fetchEvents()" id="searchButton">Знайти події</button>
+    <div class="loader" id="loader"></div>
     <div id="results"></div>
 
     <script src="script.js"></script>
